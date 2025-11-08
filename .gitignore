@@ -1,0 +1,36 @@
+# Environment variables
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Campaign files (sensitive data)
+email_campaign_progress.json
+email_campaign_log.txt
+EcomSend_customers_export_*.csv
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Original code (too large)
+original_code.html
