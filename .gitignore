@@ -12,10 +12,14 @@ env/
 venv/
 ENV/
 
-# Campaign files (sensitive data)
-email_campaign_progress.json
-email_campaign_log.txt
-EcomSend_customers_export_*.csv
+# Campaign files (sensitive data) - temporarily allowing for Railway deployment
+# email_campaign_progress.json
+# email_campaign_log.txt
+# EcomSend_customers_export_*.csv
+
+# Customer data exports
+plantilla-clientes.csv
+plantilla-clientes-filled.csv
 
 # macOS
 .DS_Store

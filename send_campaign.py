@@ -11,7 +11,7 @@ import random
 import json
 from datetime import datetime
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, Email, To, Content
+from sendgrid.helpers.mail import Mail, Email, To, Content, ClickTracking, TrackingSettings
 
 # Configuration
 SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
@@ -61,6 +61,10 @@ def log_message(message):
 def send_email(sg_client, to_email, to_name, html_content):
     """Send individual email via SendGrid"""
     try:
+        # Personalize the HTML content with customer's first name
+        first_name = to_name.split()[0] if to_name else "amigo"
+        personalized_html = html_content.replace("{{CUSTOMER_NAME}}", first_name)
+
         # Create subject line
         subject = "PROMOCIÓN ESPECIAL - $200 de descuento 🕶️"
 
@@ -69,8 +73,12 @@ def send_email(sg_client, to_email, to_name, html_content):
             from_email=Email(FROM_EMAIL, 'CX Sunglasses'),
             to_emails=To(to_email, to_name),
             subject=subject,
-            html_content=Content("text/html", html_content)
+            html_content=Content("text/html", personalized_html)
         )
+
+        # Disable click tracking to preserve original URLs
+        message.tracking_settings = TrackingSettings()
+        message.tracking_settings.click_tracking = ClickTracking(False, False)
 
         # Send the email
         response = sg_client.send(message)

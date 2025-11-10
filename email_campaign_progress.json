@@ -1,0 +1,15 @@
+{
+  "last_processed_index": 943,
+  "sent_count": 943,
+  "failed_count": 1,
+  "failed_emails": [
+    {
+      "email": "peincessvara21@gmail.com",
+      "name": "Marisela Vara Ramirez",
+      "error": "<urlopen error [Errno 60] Operation timed out>",
+      "timestamp": "2025-11-10T13:22:05.744240"
+    }
+  ],
+  "start_time": "2025-11-10T12:13:53.495625",
+  "last_run_time": "2025-11-10T14:05:06.510498"
+}
