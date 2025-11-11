@@ -16,10 +16,14 @@ from sendgrid.helpers.mail import Mail, Email, To, Content, ClickTracking, Track
 # Configuration
 SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
 FROM_EMAIL = 'sales@cxsunglassesmx.com'
-CSV_FILE = '/Users/luisrico/dev/cx/buenfin/EcomSend_customers_export_1762410755.csv'
-HTML_TEMPLATE_FILE = '/Users/luisrico/dev/cx/buenfin/email_template_optimized.html'
-PROGRESS_FILE = '/Users/luisrico/dev/cx/buenfin/email_campaign_progress.json'
-LOG_FILE = '/Users/luisrico/dev/cx/buenfin/email_campaign_log.txt'
+
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+CSV_FILE = os.path.join(SCRIPT_DIR, 'EcomSend_customers_export_1762410755.csv')
+HTML_TEMPLATE_FILE = os.path.join(SCRIPT_DIR, 'email_template_optimized.html')
+PROGRESS_FILE = os.path.join(SCRIPT_DIR, 'email_campaign_progress.json')
+LOG_FILE = os.path.join(SCRIPT_DIR, 'email_campaign_log.txt')
 
 # Timing configuration (in seconds)
 MIN_DELAY = 2  # Minimum 2 seconds between emails
